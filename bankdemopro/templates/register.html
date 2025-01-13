@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dhanlaxmi bank registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<style>
+    *
+{
+    margin:0;
+    padding:0;
+    box-size:border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+
+    background-color: #fff;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+nav .header
+{
+position:absolute;
+background-color:#800080;
+bottom:600px;
+width:1500px;
+right:0px;
+height:100px;
+line-height:160px;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    position: relative;
+    top: -255px;
+    right:-850px;
+}
+
+.container {
+    top:60px;
+    position:relative;
+    max-width: 900px;
+    width:500px;
+    margin: 0 15px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    height:500px;
+}
+.container form .details{
+    margin-top:0px;
+    }
+.container form .title{
+    font-size:16px;
+    font-weight:500;
+    margin:6px 0;
+    color:#ff00ff;
+    }
+.container form .fields{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    }
+form .fields .input-box{
+    display:flex;
+    flex-direction:column;
+    }
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input, textarea, button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    line-height:18px;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+
+
+
+</style>
+<body>
+<nav>
+    <div class="header">
+        <h1 style="color:white;margin-left:100px;">BANK ACCOUNT REGISTRATION FORM</h1>
+        </div>
+         <div class="nav-right">
+        <img src="/static/image/download.png" alt="Logo" class="logo">
+    </div>
+</nav>
+    <div class="container">
+
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li class="error-message">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="POST" action="#" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form first" >
+                <div class="details personal">
+                    <span class="title" style="margin-bottom:-10px">Personal Information</span>
+                    <div class="fields">
+
+             <div class="input-box">
+            <span class="details">Name</span>
+            <input type="text" name="name" required>
+             </div>
+
+            <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" name="username" required>
+             </div>
+
+            <div class="input-box" >
+            <span class="details">Age</span>
+            <input type="text" name="age" required>
+             </div>
+
+            <div class="input-box" style="width:215px" >
+            <span class="details">DOB</span>
+            <input type="date" name="dob" placeholder="date of birth" required />
+            </div>
+
+            <div class="input-box" >
+            <span class="details">Email</span>
+            <input type="text" name="email" required />
+            </div>
+
+            <div class="input-box" >
+            <span class="details">Phone</span>
+            <input type="text" name="phone" required />
+            </div>
+                        <div class="input-box" >
+            <span class="details">Address</span>
+            <input type="text" name="address" required />
+            </div>
+
+            <div class="input-box">
+            <span class="details" >Password</span>
+            <input type="password" name="password" required />
+            </div>
+
+             <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" name="confirm_password" required />
+            </div>
+
+            <div class="input-box">
+            <span class="details">Aadhar_number</span>
+            <input type="text" name="aadhar_number" required />
+            </div>
+
+            <div class="input-box">
+            <span class="details">PAN_number</span>
+            <input type="text" name="pan_number" required />
+            </div>
+
+            <div class="input-box">
+            <span class="details">Initial Amount</span>
+            <input type="text" name="initial_amount" required />
+            </div>
+
+        <div class="input-box">
+        <span class="details">Profile Image</span>
+        <input type="file" name="profile_image" required />
+            </div>
+<br>
+<button type="submit" style="background-color:#800080;width:150px;height:30px;
+border-radius:50px;line-height:10px;position:absolute;margin-top:480px;margin-left:180px">Register</button>
+                    </div>
+                </div>
+          </div>
+        </form>
+        <div class="footer">
+    <p style="margin-top:60px;margin-left:150px;position:absolute;">already registered?<a href="{% url 'login' %}">login here</a></p>
+</div>
+    </div>
+</body>
+</html>
