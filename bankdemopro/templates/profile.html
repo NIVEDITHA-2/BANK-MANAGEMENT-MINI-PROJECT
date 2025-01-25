@@ -83,11 +83,11 @@
         }
 
         .messages .success {
-            color: green;
+            color: #fff;
         }
 
         .messages .error {
-            color: #fff;
+            color: red;
         }
 
         .container {
@@ -148,6 +148,7 @@
             top: 20px;
             left: 20px;
         }
+
     </style>
 </head>
 <body>
@@ -160,6 +161,9 @@
         {% endif %}
     </div>
     <div class="profile-form">
+                <a href="{% url 'home' %}" class="back-link">
+            <i class="fas fa-arrow-left" style="margin-right:550px;"></i>
+        </a>
          <h1 style="font-size:25px;color:purple;">Profile</h1>
         <img src="{{ customer.profile_image.url }}" alt="Profile Image" class="profile-image">
         <h1 class="profile-name">{{ customer.name }}</h1>

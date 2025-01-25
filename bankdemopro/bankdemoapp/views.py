@@ -73,7 +73,7 @@ def register(request):
         )
         user.set_password(password)
         user.save()
-        account_number = "ACC" + str(user.id)
+        account_number = "ACCDB0" + str(user.id)
 
         customer = Customer(
             user=user,
@@ -221,10 +221,12 @@ def edit_profile(request):
         # Update fields from the form
         customer.name = request.POST.get('name')
         customer.dob = request.POST.get('dob')
+        customer.age=request.POST.get('age')
         customer.aadhar_number = request.POST.get('aadhar_number')
         customer.pan_number = request.POST.get('pan_number')
         customer.address = request.POST.get('address')
         customer.phone = request.POST.get('phone')
+
 
         # Update profile image if a new one is uploaded
         if 'profile_image' in request.FILES:
@@ -235,7 +237,7 @@ def edit_profile(request):
         user.email = request.POST.get('email')
         user.save()
 
-        # Save customer changes
+        # Save customer changes`
         customer.save()
         messages.success(request, "Your profile has been updated successfully!")
         return redirect('profile', user_id=user.id)

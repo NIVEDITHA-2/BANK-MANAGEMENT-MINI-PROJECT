@@ -119,11 +119,13 @@
 <body>
     <div class="container">
         <h1>Withdraw Form</h1>
-        <!-- Use Django static tag to load logo -->
         <img src="{% static 'image/images.png' %}" alt="Logo" class="logo">
+
+        <!-- Display error messages -->
         {% if error %}
-            <p class="error">{{ error }}</p>
+            <p class="error" style="color: red; font-weight: bold;">{{ error }}</p>
         {% endif %}
+
         <form method="post">
             {% csrf_token %}
             <p><strong>Account Name:</strong> {{ account_name }}</p>
@@ -142,8 +144,9 @@
             <button type="submit">Withdraw</button>
         </form>
     </div>
- <footer>
+    <footer>
         <p>Dhanlaxmi Bank</p>
     </footer>
 </body>
+
 </html>

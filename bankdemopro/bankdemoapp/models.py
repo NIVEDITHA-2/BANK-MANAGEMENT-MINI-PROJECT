@@ -40,7 +40,6 @@ class Customer(models.Model):
 
 from django.db import models
 
-
 class Transaction(models.Model):
     customer = models.ForeignKey(
         'Customer',

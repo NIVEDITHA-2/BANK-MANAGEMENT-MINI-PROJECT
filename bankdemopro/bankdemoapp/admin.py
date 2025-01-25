@@ -11,7 +11,7 @@ class CustomerAdmin(admin.ModelAdmin):
     list_filter = ('balance', 'dob', 'phone')
     fieldsets = (
         (None, {
-            'fields': ('name', 'email', 'account_number', 'balance', 'dob', 'age', 'pan_number', 'address', 'phone',
+            'fields': ('name', 'email', 'account_number','initial_amount', 'dob', 'age', 'pan_number', 'address', 'phone',
                        'aadhar_number', 'profile_image')
         }),
     )
